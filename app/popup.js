@@ -2,6 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+
+
+
 /**
  * Get the current URL.
  *
@@ -87,6 +90,14 @@ function getImageUrl(searchTerm, callback, errorCallback) {
   };
   x.send();
 }
+
+function loadApp() {
+
+chrome.tabs.create({url: chrome.extension.getURL("index.html")})
+}
+
+document.getElementById("newtab").onclick = loadApp();
+
 
 function renderStatus(statusText) {
   document.getElementById('status').textContent = statusText;
