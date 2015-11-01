@@ -10,8 +10,8 @@ var users = require('./routes/users');
 
 var app = express();
 
-var accountSid = AC7eb1dbc22f9c132e1719f6069c1ea2c4; 
-var authToken = 3180a7be3de56cfd4994505224b045a5; 
+var accountSid = "AC7eb1dbc22f9c132e1719f6069c1ea2c4"; 
+var authToken = "3180a7be3de56cfd4994505224b045a5"; 
 
 var client = require('twilio')(accountSid, authToken); 
 
