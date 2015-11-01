@@ -20,7 +20,7 @@ client.messages.create({
   from: "+12564454274",
   body: "Test message", 
 }, function(err, message) {
-    console.log(message.sid); 
+    console.log(err); 
 });
 
 // view engine setup
