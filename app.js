@@ -10,6 +10,19 @@ var users = require('./routes/users');
 
 var app = express();
 
+var accountSid = AC7eb1dbc22f9c132e1719f6069c1ea2c4; 
+var authToken = 3180a7be3de56cfd4994505224b045a5; 
+
+var client = require('twilio')(accountSid, authToken); 
+
+client.messages.create({
+  to: "+19164501958", 
+  from: "+12564454274",
+  body: "Test message", 
+}, function(err, message) {
+    console.log(message.sid); 
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
