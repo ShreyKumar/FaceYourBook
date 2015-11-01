@@ -8,10 +8,32 @@
   <head>
 	<title>Money You Have Lost :(</title>
         <style>
+        @font-face {
+        font-family: 'typerwriter';
+        src: url(AmericanTypewriter.ttc);
+        }
+        @font-face {
+          font-family: 'new';
+          src: url("Andale Mono.ttf");
+        }
       body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
+        font-family: sans-serif;
         width: 300px;
+        background-color: #96ED89;
+      }
+      h1{
+        font-family: 'new', sans-serif;
+        text-align: center;
+      }
+      p{
+        font-size: 30px;
+        color: #00261C;
+      }
+      .dollar {
+        font-family: 'typerwriter';
+        font-size: 50px;
+        color: #044C29;
+        text-shadow: #45BF55 0px 1px 0, #000 0 -1px 0;
       }
       #status {
         /* avoid an excessively wide status text */
@@ -30,9 +52,9 @@
      -->
   </head>
   <body>
-    <h1 id="title">You Have Wasted Money!!</h1>
-    <p> A total of $<span id="money">10</span> has been lost on
-      <span id="websites">facebook</span>
+    <h1 id="title">Don't Waste Money</h1>
+    <p> A total of <span class="dollar">$<span id="money">0</span></span> has been lost on
+      <span id="websites">facebook</span></p>
       <!-- <button id="go-to-options">Go to options</button> -->
     <script type="text/javascript" src="popup.js">
 

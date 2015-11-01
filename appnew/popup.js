@@ -39,20 +39,18 @@ function getCurrentTabUrl(callback) {
     callback(url);
   });
 }
-
-
+//
+// document.querySelector('#go-to-options').addEventListener(function() {
+//   if (chrome.runtime.openOptionsPage) {
+//     // New way to open options pages, if supported (Chrome 42+).
+//     chrome.runtime.openOptionsPage();
+//   } else {
+//     // Reasonable fallback.
+//     window.open(chrome.runtime.getURL('options.html'));
+//   }
+// });
 
 document.addEventListener('DOMContentLoaded', function() {
-
-  document.querySelector('#go-to-options').addEventListener(function() {
-    if (chrome.runtime.openOptionsPage) {
-      // New way to open options pages, if supported (Chrome 42+).
-      chrome.runtime.openOptionsPage();
-    } else {
-      // Reasonable fallback.
-      window.open(chrome.runtime.getURL('options.html'));
-    }
-  });
   // check if moneySpent has been initialized
   if (localStorage.getItem("moneySpent") == undefined){
     localStorage.setItem("moneySpent", 0);
@@ -60,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     //check if facebook is in the url.
       if (url.indexOf("facebook") > -1){
+
           localStorage["moneySpent"]++;
 
       }
@@ -68,11 +67,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   // the view for the popup.
   if (localStorage["moneySpent"] == 0) {
-    document.getElementById('title').innerHTML = "Dont start wasting money!! (please)";
-  } else if (localStorage["moneySpent"] > 0 && (localStorage["moneySpent"] < 3)) {
-    document.getElementById('title').innerHTML = "You don't waste too much time, keep it up.";
+    document.getElementById('title').innerHTML = "You don't time, keep it up.";
+  } else if ((localStorage["moneySpent"] > 0) && (localStorage["moneySpent"] <= 3)) {
+    document.getElementById('title').innerHTML = "U HEADING DOWN A SLIPPERY SLOPE";
   } else {
-    document.getElementById('title').innerHTML = "Are you kidding me..."
+    document.getElementById('title').innerHTML = "no more hope.";
   }
 
   document.getElementById('money').innerHTML = localStorage["moneySpent"];
