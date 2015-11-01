@@ -58,7 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
   getCurrentTabUrl(function(url) {
     //check if facebook is in the url.
       if (url.indexOf("facebook") > -1){
+        // alert("hello");
 
+          $(document).ready(function(){
+              // alert("hello there");
+          });
           localStorage["moneySpent"]++;
 
       }
@@ -76,8 +80,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('money').innerHTML = localStorage["moneySpent"];
 
-    alert("hello");
-    $(document).ready(function(){
-        alert("hello there");
-    });
+
 });
