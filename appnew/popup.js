@@ -4,7 +4,6 @@
 
 
 
-
 /**
  * Get the current URL.
  *
@@ -39,35 +38,41 @@ function getCurrentTabUrl(callback) {
 
     callback(url);
   });
-
-  // Most methods of the Chrome extension APIs are asynchronous. This means that
-  // you CANNOT do something like this:
-  //
-  // var url;
-  // chrome.tabs.query(queryInfo, function(tabs) {
-  //   url = tabs[0].url;
-  // });
-  // alert(url); // Shows "undefined", because chrome.tabs.query is async.
 }
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
+
+  document.querySelector('#go-to-options').addEventListener(function() {
+    if (chrome.runtime.openOptionsPage) {
+      // New way to open options pages, if supported (Chrome 42+).
+      chrome.runtime.openOptionsPage();
+    } else {
+      // Reasonable fallback.
+      window.open(chrome.runtime.getURL('options.html'));
+    }
+  });
+  // check if moneySpent has been initialized
   if (localStorage.getItem("moneySpent") == undefined){
     localStorage.setItem("moneySpent", 0);
   }
   getCurrentTabUrl(function(url) {
+    //check if facebook is in the url.
       if (url.indexOf("facebook") > -1){
-alert(20);
           localStorage["moneySpent"]++;
 
       }
 
 
   });
-  if (localStorage["moneySpent"] < 3) {
+  // the view for the popup.
+  if (localStorage["moneySpent"] == 0) {
+    document.getElementById('title').innerHTML = "Dont start wasting money!! (please)";
+  } else if (localStorage["moneySpent"] > 0 && (localStorage["moneySpent"] < 3)) {
     document.getElementById('title').innerHTML = "You don't waste too much time, keep it up.";
   } else {
-    document.getElementById('title').innerHTML = "Goddamn, go faceYOURbook";
+    document.getElementById('title').innerHTML = "Are you kidding me..."
   }
 
   document.getElementById('money').innerHTML = localStorage["moneySpent"];
