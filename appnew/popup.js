@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   getCurrentTabUrl(function(url) {
       if (url.indexOf("facebook") > -1){
-alert(20);
           localStorage["moneySpent"]++;
 
       }
@@ -71,4 +70,9 @@ alert(20);
   }
 
   document.getElementById('money').innerHTML = localStorage["moneySpent"];
+
+    alert("hello");
+    $(document).ready(function(){
+        alert("hello there");
+    });
 });
