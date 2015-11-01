@@ -55,21 +55,20 @@ document.addEventListener('DOMContentLoaded', function() {
   if (localStorage.getItem("moneySpent") == undefined){
     localStorage.setItem("moneySpent", 0);
   }
-  var moneySpent = ;
   getCurrentTabUrl(function(url) {
       if (url.indexOf("facebook") > -1){
-
+alert(20);
           localStorage["moneySpent"]++;
 
       }
 
 
   });
-  if (moneySpent < 3) {
+  if (localStorage["moneySpent"] < 3) {
     document.getElementById('title').innerHTML = "You don't waste too much time, keep it up.";
   } else {
     document.getElementById('title').innerHTML = "Goddamn, go faceYOURbook";
   }
 
-  document.getElementById('money').innerHTML = moneySpent;
+  document.getElementById('money').innerHTML = localStorage["moneySpent"];
 });
