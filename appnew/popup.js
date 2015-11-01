@@ -61,7 +61,27 @@ document.addEventListener('DOMContentLoaded', function() {
         // alert("hello");
 
           $(document).ready(function(){
-              // alert("hello there");
+              var data = {
+                medium: "balance",
+                payee_id: "56241a13de4bf40b17112926",
+                transaction_date: "31/10/15",
+                status: "pending",
+                description: "fdsfdsfds",
+                amount: 1
+              }
+
+            //detuct amount
+            $.ajax({
+                method: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: "http://api.reimaginebanking.com/accounts/56241a13de4bf40b17112927/transfers?key=3cdb9c7676cdd3b9c000cbb9b5d94bdd",
+                data: JSON.stringify(data)
+            }).done(function( msg ) {
+                alert("Amount transfered!");
+            }).error(function(msg){
+                console.log(msg);
+            });
           });
           localStorage["moneySpent"]++;
 
