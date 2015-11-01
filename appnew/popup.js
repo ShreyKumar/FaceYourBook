@@ -75,4 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   document.getElementById('money').innerHTML = localStorage["moneySpent"];
+
+    alert("hello");
+    $(document).ready(function(){
+        alert("hello there");
+    });
 });
